@@ -1,0 +1,93 @@
+/* Google Font Integration */
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #f8f9fa;
+}
+
+#posts {
+  max-height: 400px;
+  overflow: auto;
+}
+
+
+#posts::-webkit-scrollbar {
+  display: none;
+}
+
+#posts {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.navbar {
+  background: linear-gradient(45deg, #007bff, #6610f2);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-link {
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #343a40;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.post {
+  transition: all 0.3s ease;
+}
+
+.post:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.post-title {
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.post-content {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.btn-outline-primary, .btn-outline-success, .btn-outline-danger {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+}
+
+.form-control {
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+
+.bg-light {
+  background-color: #f4f6f9 !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}

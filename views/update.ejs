@@ -1,0 +1,43 @@
+
+<%- include('layout/header.ejs') %>
+<!-- Main Content -->
+<div class="container mt-5">
+  <div class="row g-5">
+    <!-- Blog Posts Section -->
+    <div class="col-md-8">
+      <h2 class="section-title mb-4">Recent Posts</h2>
+      <div id="posts" class="mt-4" style="max-height: 500px; overflow-y: auto;">
+        <!-- Example Blog Post -->
+        <% if (postTitle && postContent) { %>
+        <div class="post mb-4 p-4 bg-white rounded shadow-sm border-start border-4 border-primary">
+          <h3 class="post-title mb-3"><%= postTitle %></h3>
+          <p class="post-content mb-0"><%= postContent %></p>
+        </div>
+        <% } else { %>
+        <div class="post mb-4 p-4 bg-white rounded shadow-sm border-start border-4 border-primary">
+          <h3 class="post-title mb-3">Blogging</h3>
+          <p class="post-content mb-0">This is a Blog web application</p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Create Post Section -->
+    <div class="col-md-4">
+      <h2 class="section-title mb-4">Update Post</h2>
+      <form action="/update/<%= postId %>" method="POST" class="mt-4 p-4 bg-light rounded shadow-lg">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title" value="<%= postTitle %>" required>
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea class="form-control" id="content" name="content" rows="5" placeholder="Write your post here..." required><%= postContent %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 rounded-pill">Update Post</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('./layout/footer.ejs') %>
+

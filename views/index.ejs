@@ -1,0 +1,65 @@
+<%- include('./layout/header.ejs') %>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary py-3 shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Create Post</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row g-5">
+            <!-- Blog Posts Section -->
+            <div class="col-md-8">
+                <h2 class="section-title mb-4">Recent Posts</h2>
+                <div id="posts" class="mt-4">
+                  <!-- Blog Post Example -->
+                  <% posts.forEach(post => { %>
+                    <div class="post mb-4 p-4 bg-white rounded shadow-lg border-start border-4 border-primary">
+                      <h3 class="post-title mb-3"><%= post.title %></h3>
+                      <p class="post-content mb-0"><%= post.content %></p>
+                      <div class="d-flex justify-content-between py-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-pill">Read More</a>
+                        <div>
+                          <a href="/update/<%= post.id %>" class="btn btn-outline-success btn-sm rounded-pill me-2">Update</a>
+                          <a href="/delete/<%= post.id %>" class="btn btn-outline-danger btn-sm rounded-pill">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  <% }); %>
+                </div>
+              </div>
+              
+              
+
+            <!-- Create Post Section -->
+            <div class="col-md-4">
+                <h2 class="section-title">Create a Post</h2>
+                <form action="/submit" method="POST" class="mt-4 p-4 bg-light rounded shadow-lg">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Enter post title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" id="content" name="content" rows="5" placeholder="Write your post here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include('./layout/footer.ejs') %>
